@@ -1,5 +1,6 @@
 import sys
 import httpx
+import json
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -49,10 +50,23 @@ BODY = {
 
 try:
     response = httpx.post(URL, headers=HEADERS, json=BODY, timeout=60)
+    try:
+        responseInJSON = response.json()
+    except json.JSONDecodeError as e:
+        print("Failed to decode JSON response. Response content: ", response)
+    
     print("This is the status code: ", response.status_code)
-
-    responseInJSON = response.json()
     responseErrorMessage = responseInJSON.get('error', {}).get('message', 'No error message provided')
+
+    try:
+        finishReason = responseInJSON['candidates'][0]['finishReason']
+    except (KeyError, IndexError):
+        finishReason = None
+
+    if finishReason == "None":
+        print("The request failed with an error. Please check the response for details.")
+        print("Response content: ", responseInJSON)
+        sys.exit()
 
     if response.status_code != 200:
         if response.status_code == 400:
