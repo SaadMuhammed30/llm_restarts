@@ -65,20 +65,26 @@ def build_request_body(query, thinking_Level="LOW"):
     }
 
 def main():
-    flagEmpty = True
-    while flagEmpty:
-        query = input("Enter your prompt: ")
-    # query = ""
-
-        if query.strip()=="":
-            print("Please enter a prompt to continue....")
-        else:
-            flagEmpty = False
+    contents = []
     thinking_Level = input("Enter the thinking level (MINIMAL, LOW, MEDIUM, HIGH): ").strip().upper()
     if thinking_Level not in ["MINIMAL", "LOW", "MEDIUM", "HIGH"]:
         print("Invalid thinking level. Defaulting to LOW.")
         thinking_Level = "LOW"
-    body = build_request_body(query, thinking_Level)
+
+    flagEmpty = True
+    while flagEmpty:
+        query = input("Enter your prompt: ")
+    # query = ""
+        if query.lower() in ("exit", "quit"):
+            print("Exiting the program.")
+            break
+        
+        if query.strip()=="":
+            print("Please enter a prompt to continue....")
+        else:
+            flagEmpty = False
+    
+    body = build_request_body(contents, thinking_Level)
 
     response = call_api(body)
 

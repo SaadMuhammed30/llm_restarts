@@ -1,0 +1,31 @@
+{
+    "candidates": [
+        {
+            "content": {
+                "parts": [
+                    {
+                        "text": "Greetings, Saad of Krypton! Welcome to Earth. \n\nIt is an honor to meet a survivor of such a legendary planet. I must ask—how are you adjusting to our yellow sun? You must be feeling incredibly powerful here compared to back home under Rao, your red giant. \n\nJust a friendly piece of advice: if anyone hands you a glowing green rock, you might want to take a few steps back! \n\nHow can I help you on your earthly journey today?",
+                        "thoughtSignature": "EmgKZgFpFH0TDWnCkY3rcW0ZqpESaMKC7Mr+SuUbXTWBPexpCyw303XJdwqSiz6o/aRZLCVXqOg5NybPSrvnZ1Tgtc4FYtaIm21mEuL0RGA0bjlgSQyxxJMmQyuyabWxSHuNFoUFm9OPag=="
+                    }
+                ],
+                "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+        }
+    ],
+    "usageMetadata": {
+        "promptTokenCount": 18,
+        "candidatesTokenCount": 99,
+        "totalTokenCount": 117,
+        "promptTokensDetails": [
+            {
+                "modality": "TEXT",
+                "tokenCount": 18
+            }
+        ],
+        "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash",
+    "responseId": "ejS5at22K63ZjuMP6KGCkQQ"
+}
